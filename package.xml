@@ -3,9 +3,13 @@
 <package format="3">
   <name>mypkg</name>
   <version>0.0.0</version>
-  <description>A package for robosys2025 practice</descripti  on>
-  <maintainer email="busutobui@gmail.com">Seiya Ohata</maint  ainer>
+  <description>a Package for robosys2025 practice</description>
+  <maintainer email="busutobui@gmail.com">Seiya Ohata</maintainer>
   <license>BSD-3-Clause</license>
+  <exec_depend>rclpy</exec_depend>            
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
@@ -13,6 +17,6 @@
   <test_depend>python3-pytest</test_depend>
 
   <export>
-    <build_type>ament_python</build_type>
+    	  <build_type>ament_python</build_type>
   </export>
 </package>
