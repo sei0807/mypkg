@@ -8,12 +8,5 @@ import pytest
 @pytest.mark.copyright
 @pytest.mark.linter
 def test_copyright():
-    rc = main(argv=[
-        '.',
-        'test',
-        '--copyright-holder',
-        'Seiya Ohata',
-        '--license',
-        'BSD-3-Clause',
-    ])
+    rc = main(argv=['.', 'test'])
     assert rc == 0, 'Found %d errors' % rc
