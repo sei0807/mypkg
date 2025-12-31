@@ -1,29 +1,20 @@
+# SPDX-FileCopyrightText: 2025 Seiya Ohata
+# SPDX-License-Identifier: BSD-3-Clause
 import rclpy
 from rclpy.node import Node
-from person_msgs.srv import Query
+from std_msgs.msg import Int16
 
-rclpy.init()
-node = Node("listener")
+class Listener(Node):
+    def __init__(self):
+        super().__init__('listener')
+        self.pub = self.create_subscription(Int16, 'count', self.cb, 10)
+        self.pos = 0
 
+    def cb(self, msg):
+        self.pos += msg.data
+        self.get_logger().info("Velocity: %d, Current Position: %d" % (msg.data, self.pos))
 
-def main():
-    client = node.create_client(Query, 'query')
-    while not client.wait_for_service(timeout_sec=1.0):
-        node.get_logger().info('待機中')
-
-    req = Query.Request()
-    req.name = "大畑誠哉"
-    future = client.call_async(req)
-    while rclpy.ok():
-        rclpy.spin_once(node)
-        if future.done():
-            try:
-                response = future.result()
-            except:
-                node.get_logger().info('呼び出し失敗')
-            else:
-                node.get_logger().info("age: {}".format(response.age))
-
-            break
-    node.destroy_node()
-    rclpy.shutdown()
+    def main():
+        rclpy.init()
+        node = Listener()
+        rclpy.spin(node)

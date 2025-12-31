@@ -1,20 +1,22 @@
+# SPDX-FileCopyrightText: 2025 Seiya Ohata
+# SPDX-License-Identifier: BSD-3-Clause
 import rclpy
 from rclpy.node import Node
-from person_msgs.srv import Query
+from std_msgs.msg import Int16
+import random
 
-rclpy.init()
-node = Node("talker")
+class Talker(Node):
+    def __init__(self):
+        super().__init__('talker')
+        self.pub = self.create_publisher(Int16, 'count', 10)
+        self.create_timer(0.5, self.cb)
 
+    def cb(self):
+        msg = Int16()
+        msg.data = random.randint(-1, 1)
+        self.pub.publish(msg)
 
-def cb(request, response):
-        if request.name == "大畑誠哉":
-            response.age = 46
-        else:
-            response.age = 255
-
-        return response
-
-
-def main():
-    srv = node.create_service(Query, "query", cb)
-    rclpy.spin(node)
+    def main():
+        rclpy.init()
+        node = Talker()
+        rclpy.spin(node)
