@@ -3,6 +3,7 @@
 
 import pytest
 
+
 @pytest.mark.copyright
 @pytest.mark.linter
 def test_copyright():
