@@ -7,9 +7,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build and test
+        shell: bash
         run: |
-          rsource="/opt/ros/humble/setup.bash"
-          source $rsource
+          source /opt/ros/humble/setup.bash
           colcon build
           source install/setup.bash
           colcon test
