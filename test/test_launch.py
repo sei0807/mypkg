@@ -1,8 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Seiya Ohata
 # SPDX-License-Identifier: BSD-3-Clause
 
-import os
-import sys
 import unittest
 import launch
 import launch_ros
