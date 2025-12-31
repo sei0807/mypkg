@@ -19,10 +19,10 @@ $ ros2 launch mypkg talk_listen.launch.py
 [INFO] [listener]: Velocity: 1, Current Position: 1
 [INFO] [listener]: Velocity: 1, Current Position: 2
 [INFO] [listener]: Velocity: 0, Current Position: 2
-[INFO] [listener]: Velocity: -1, Current Position:1
+[INFO] [listener]: Velocity: -1, Current Position: 1
 ```
 ## 必要なソフトウェア
--ROS 2 Humble Hawksbill
+- ROS 2 Humble Hawksbill
 - Python 3.10
 
 ## テスト環境
