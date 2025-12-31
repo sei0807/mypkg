@@ -14,7 +14,7 @@ class Listener(Node):
         self.pos += msg.data
         self.get_logger().info("Velocity: %d, Current Position: %d" % (msg.data, self.pos))
 
-    def main():
-        rclpy.init()
-        node = Listener()
-        rclpy.spin(node)
+def main():
+    rclpy.init()
+    node = Listener()
+    rclpy.spin(node)

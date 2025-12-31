@@ -16,7 +16,7 @@ class Talker(Node):
         msg.data = random.randint(-1, 1)
         self.pub.publish(msg)
 
-    def main():
-        rclpy.init()
-        node = Talker()
-        rclpy.spin(node)
+def main():
+    rclpy.init()
+    node = Talker()
+    rclpy.spin(node)
