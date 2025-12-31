@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Seiya Ohata
+# Copyright 2025 Seiya Ohata
 # SPDX-License-Identifier: BSD-3-Clause
 
 from ament_copyright.main import main
