@@ -10,7 +10,7 @@ jobs:
         shell: bash
         run: |
           apt-get update
-          apt-get install -y python3-pytest python3-launch-testing-ros ros-humble-ament-copyright ros-humble-ament-flake8 ros-humble-ament-pep257
+          apt-get install -y python3-pytest ros-humble-launch-testing-ros ros-humble-ament-copyright ros-humble-ament-flake8 ros-humble-ament-pep257
           source /opt/ros/humble/setup.bash
           colcon build
           source install/setup.bash
