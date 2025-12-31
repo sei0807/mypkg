@@ -1,9 +1,8 @@
 # Copyright 2025 Seiya Ohata
-# SPDX-License-Identifier: BSD-3-Clause
+# Licensed under the 3-Clause BSD License
 
 from ament_copyright.main import main
 import pytest
-
 
 @pytest.mark.copyright
 @pytest.mark.linter
