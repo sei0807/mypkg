@@ -10,6 +10,7 @@ import launch_ros.actions
 import launch_testing.actions
 import pytest
 
+
 @pytest.mark.launch_test
 def generate_test_description():
     talker = launch_ros.actions.Node(
@@ -26,6 +27,7 @@ def generate_test_description():
         listener,
         launch_testing.actions.ReadyToTest(),
     ])
+
 
 class TestTalkerListener(unittest.TestCase):
     def test_exit_code(self, proc_info):

@@ -193,7 +193,8 @@ def process_dsv_file(
 ):
     commands = []
     if _include_comments():
-        commands.append(FORMAT_STR_COMMENT_LINE.format_map({'comment': dsv_path}))
+        commands.append(FORMAT_STR_COMMENT_LINE.format_map(
+            {'comment': dsv_path}))
     with open(dsv_path, 'r') as h:
         content = h.read()
     lines = content.splitlines()
@@ -328,7 +329,8 @@ def _append_unique_value(name, value):
             env_state[name] = set()
     # append even if the variable has not been set yet, in case a shell script sets the
     # same variable without the knowledge of this Python script.
-    # later _remove_ending_separators() will cleanup any unintentional leading separator
+    # later _remove_ending_separators() will cleanup any unintentional leading
+    # separator
     extend = FORMAT_STR_USE_ENV_VAR.format_map({'name': name}) + os.pathsep
     line = FORMAT_STR_SET_ENV_VAR.format_map(
         {'name': name, 'value': extend + value})
@@ -350,7 +352,8 @@ def _prepend_unique_value(name, value):
             env_state[name] = set()
     # prepend even if the variable has not been set yet, in case a shell script sets the
     # same variable without the knowledge of this Python script.
-    # later _remove_ending_separators() will cleanup any unintentional trailing separator
+    # later _remove_ending_separators() will cleanup any unintentional
+    # trailing separator
     extend = os.pathsep + FORMAT_STR_USE_ENV_VAR.format_map({'name': name})
     line = FORMAT_STR_SET_ENV_VAR.format_map(
         {'name': name, 'value': value + extend})
@@ -372,7 +375,8 @@ def _remove_ending_separators():
     global env_state
     commands = []
     for name in env_state:
-        # skip variables that already had values before this script started prepending
+        # skip variables that already had values before this script started
+        # prepending
         if name in os.environ:
             continue
         commands += [

@@ -5,6 +5,7 @@ from rclpy.node import Node
 from std_msgs.msg import Int16
 import random
 
+
 class Talker(Node):
     def __init__(self):
         super().__init__('talker')
@@ -15,6 +16,7 @@ class Talker(Node):
         msg = Int16()
         msg.data = random.randint(-1, 1)
         self.pub.publish(msg)
+
 
 def main():
     rclpy.init()
