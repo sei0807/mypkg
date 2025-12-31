@@ -29,4 +29,4 @@ def generate_test_description():
 
 class TestTalkerListener(unittest.TestCase):
     def test_exit_code(self, proc_info):
-        pass
+        launch_testing.asserts.assertExitCodes(proc_info)
