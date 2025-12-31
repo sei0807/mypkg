@@ -9,6 +9,8 @@ jobs:
       - name: build and test
         shell: bash
         run: |
+          apt-get update
+          apt-get install -y python3-pytest
           source /opt/ros/humble/setup.bash
           colcon build
           source install/setup.bash
