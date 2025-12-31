@@ -1,0 +1,15 @@
+name: test
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    container: ros:humble-ros-base-jammy
+    steps:
+      - uses: actions/checkout@v2
+      - name: build and test
+        run: |
+          rsource="/opt/ros/humble/setup.bash"
+          source $rsource
+          colcon build
+          source install/setup.bash
+          colcon test
