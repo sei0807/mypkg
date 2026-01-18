@@ -19,4 +19,4 @@ jobs:
           colcon build
           source install/setup.bash
           colcon test --event-handlers console_direct+
-          bash -xv src/mypkg/test/test.bash /root
+          bash -xv src/mypkg/test/test.bash

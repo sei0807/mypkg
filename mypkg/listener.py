@@ -5,6 +5,7 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Int16
 
+
 class Listener(Node):
     def __init__(self):
         super().__init__('listener')
@@ -18,6 +19,7 @@ class Listener(Node):
         msg_out.data = self.pos
         self.pub.publish(msg_out)
         self.get_logger().info("Velocity: %d, Current Position: %d" % (msg.data, self.pos))
+
 
 def main():
     rclpy.init()
