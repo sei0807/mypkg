@@ -3,6 +3,16 @@
 
 ランダムな速度データを積分して、ロボットの現在位置を推定するシミュレータです。
 
+## ノード一覧
+### talker
+ランダムな速度指令（整数値）を発行するノードです。
+- **Publish**: `/count` (std_msgs/msg/Int16)
+
+### listener
+速度指令を受信して現在位置を計算し、配信するノードです。
+- **Subscribe**: `/count` (std_msgs/msg/Int16)
+- **Publish**: `/position` (std_msgs/msg/Int16)
+
 ## 使用方法
 このパッケージには、速度指令を送る `talker` と、それを受信して位置を計算する `listener` が含まれています。
 
@@ -34,4 +44,5 @@ $ ros2 launch mypkg talk_listen.launch.py
 
 ## 謝辞
 このパッケージのコードは、下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを、参考にしています。
+
 [ryuichiueda/slides_marp/robosys2025](https://github.com/ryuichiueda/slides_marp/tree/master/robosys2025)
