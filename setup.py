@@ -1,4 +1,4 @@
-from setuptools import find_packages, setup
+from setuptools import setup
 import os
 from glob import glob
 
@@ -7,7 +7,7 @@ package_name = 'mypkg'
 setup(
     name=package_name,
     version='0.0.0',
-    packages=find_packages(exclude=['test']),
+    packages=[package_name],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -16,9 +16,9 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Seiya Ohata',
-    maintainer_email='busutobui@gmail.com',
-    description='a Package for practice',
+    maintainer='Sei',
+    maintainer_email='sei@todo.todo',
+    description='A practice package of ROS 2',
     license='BSD-3-Clause',
     tests_require=['pytest'],
     entry_points={
